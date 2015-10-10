@@ -17,6 +17,14 @@ var PollSchema = new SimpleSchema({
     unique: true,
     denyUpdate: true
   },
+  resulturl: {
+    type: String,
+    regEx: /^[a-zA-Z0-9]+$/,
+    max: 8,
+    index: true,
+    unique: true,
+    denyUpdate: true
+  },
   createdOn: {
     type: Date,
     defaultValue: new Date(),
