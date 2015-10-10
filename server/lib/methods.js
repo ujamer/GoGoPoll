@@ -1,5 +1,8 @@
 Meteor.methods({
   createPoll: function(pollData) {
-    return Polls.insert(pollData);
+    var resulturl = Random.id(8);
+    Polls.insert(_.extend(pollData, { resulturl }));
+
+    return resulturl;
   }
 });
