@@ -30,12 +30,22 @@ New = React.createClass({
                 <QuestionField placeholder="What is your favourite colour?" name="question" labelText="Ask A Question." />
               </div>
             </div>
+            <div className="divider" />
+            <div className="row">
+              <h5>Participents can select from these options:</h5>
+              <ul className="collection">
+                <PollItem />
+                <PollItem />
+              </ul>
+            </div>
 
             <div className="row">
               <div className="input-field col s12">
                 <FormField type="text" name="url" labelText="Poll URL" />
               </div>
             </div>
+
+
 
             <input className="waves-effect waves-light btn-large right" type="submit" value="Submit" />
 
