@@ -4,7 +4,7 @@ New = React.createClass({
 
     var form = new ParseForm(event.target);
     var formData = {
-      title: form.title,
+      question: form.question,
       url: form.url
     };
 
@@ -26,7 +26,9 @@ New = React.createClass({
           <form className="col s12" onSubmit={this.onFormSubmit}>
 
             <div className="row">
-                <QuestionField placeholder="What is your favourite colour?" name="Question" labelText="Ask A Question." />
+              <div className="input-field col s12">
+                <QuestionField placeholder="What is your favourite colour?" name="question" labelText="Ask A Question." />
+              </div>
             </div>
 
             <div className="row">

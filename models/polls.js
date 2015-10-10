@@ -1,5 +1,5 @@
 var PollSchema = new SimpleSchema({
-  title: {
+  question: {
     type: String,
     max: 255,
     denyUpdate: true
