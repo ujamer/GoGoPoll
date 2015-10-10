@@ -1,4 +1,4 @@
-Result = React.createClass({
+Results = React.createClass({
   render() {
     return (
       <div>
