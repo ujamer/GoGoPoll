@@ -1,6 +1,20 @@
 Create = React.createClass({
-  onSubmitClicked() {
-    FlowRouter.go('/result/dummyPollId');
+  onFormSubmit(event) {
+    event.preventDefault();
+
+    var form = new ParseForm(event.target);
+    var pollContext = Polls.simpleSchema().namedContext();
+
+    pollContext.validate({
+      title: form.title,
+      url: form.url
+    });
+
+    if (pollContext.isValid()) {
+      FlowRouter.go('/result/dummyPollId');
+    } else {
+      alert('Field validation failed. Please correct any errors.');
+    }
   },
   render() {
     return (
@@ -8,12 +22,28 @@ Create = React.createClass({
 
         <h1>Create a New Poll</h1>
 
-        <div className="input-field">
-          <input id="poll_title" type="text" className="validate" />
-          <label htmlFor="poll_title">Poll Title</label>
+        <div className="row">
+
+          <form className="col s12" onSubmit={this.onFormSubmit}>
+
+            <div className="row">
+
+              <div className="input-field col s6">
+                <TextField id="title" name="title" labelText="Poll Title"/>
+              </div>
+
+              <div className="input-field col s6">
+                <TextField id="url" name="url" labelText="Poll URL"/>
+              </div>
+
+            </div>
+
+            <input className="waves-effect waves-light btn-large right" type="submit" value="Submit" />
+
+          </form>
+
         </div>
 
-        <a className="waves-effect waves-light btn-large" onClick={this.onSubmitClicked} role="button">Submit</a>
       </div>
     );
   }

@@ -1,3 +1,24 @@
+var PollSchema = new SimpleSchema({
+  title: {
+    type: String,
+    max: 255,
+    denyUpdate: true
+  },
+  url: {
+    type: String,
+    autoValue: function autoValue() {
+      if (!this.isSet && this.isInsert) {
+        return Random.id();
+      }
+    },
+    regEx: /^[a-zA-Z0-9]+$/,
+    max: 50,
+    index: true,
+    unique: true,
+    denyUpdate: true
+  }
+});
+
 // var PollSchema = new SimpleSchema({
 //   title: {
 //     type: String,
@@ -94,6 +115,6 @@
 //     }
 //   }
 // });
-//
-// Polls = new Mongo.Collection('polls');
-// Polls.attachSchema(PollSchema);
+
+Polls = new Mongo.Collection('polls');
+Polls.attachSchema(PollSchema);
