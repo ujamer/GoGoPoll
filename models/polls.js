@@ -25,6 +25,16 @@ var PollSchema = new SimpleSchema({
     unique: true,
     denyUpdate: true
   },
+  allowAnonymousVote: {
+    type: Boolean,
+    defaultValue: true,
+    denyUpdate: true
+  },
+  allowShowResult: {
+    type: Boolean,
+    defaultValue: true,
+    denyUpdate: true
+  },
   createdOn: {
     type: Date,
     defaultValue: new Date(),
@@ -96,24 +106,6 @@ var PollSchema = new SimpleSchema({
 //   //     omit: true
 //   //   }
 //   // },
-//   allowShowResult: {
-//     type: Boolean,
-//     defaultValue: true,
-//     denyUpdate: true
-//   },
-//   allowAnonymousVote: {
-//     type: Boolean,
-//     defaultValue: true,
-//     denyUpdate: true
-//   },
-//   createdOn: {
-//     type: Date,
-//     defaultValue: new Date(),
-//     denyUpdate: true,
-//     autoform: {
-//       omit: true
-//     }
-//   },
 //   lastAccessedOn: {
 //     type: Date,
 //     autoValue: function autoValue() {
