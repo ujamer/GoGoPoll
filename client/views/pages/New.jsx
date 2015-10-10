@@ -2,26 +2,20 @@ New = React.createClass({
   onFormSubmit(event) {
     event.preventDefault();
 
-    var pollContext = Polls.simpleSchema().namedContext();
     var form = new ParseForm(event.target);
     var formData = {
       title: form.title,
       url: form.url
     };
 
-    pollContext.validate(formData);
-
-    if (pollContext.isValid()) {
-      Meteor.call('createPoll', formData, function(error, newPollId) {
-        if (error) {
-            throw error;
-        } else {
-            FlowRouter.go(`/results/${newPollId}`);
-        }
-      });
-    } else {
-      alert('Field validation failed. Please correct any errors.');
-    }
+    Meteor.call('createPoll', formData, function(error, newPollId) {
+      if (error) {
+        alert('Field validation failed. Please correct any errors.');
+        throw error;
+      } else {
+        FlowRouter.go(`/results/${newPollId}`);
+      }
+    });
   },
   render() {
     return (

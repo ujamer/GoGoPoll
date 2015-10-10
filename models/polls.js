@@ -8,7 +8,7 @@ var PollSchema = new SimpleSchema({
     type: String,
     autoValue: function autoValue() {
       if (!this.isSet && this.isInsert) {
-        return Random.id();
+        return Random.id(8);
       }
     },
     regEx: /^[a-zA-Z0-9]+$/,
