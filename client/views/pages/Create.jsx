@@ -2,16 +2,23 @@ Create = React.createClass({
   onFormSubmit(event) {
     event.preventDefault();
 
-    var form = new ParseForm(event.target);
     var pollContext = Polls.simpleSchema().namedContext();
-
-    pollContext.validate({
+    var form = new ParseForm(event.target);
+    var formData = {
       title: form.title,
       url: form.url
-    });
+    };
+
+    pollContext.validate(formData);
 
     if (pollContext.isValid()) {
-      FlowRouter.go('/result/dummyPollId');
+      Meteor.call('createPoll', formData, function(error, newPollId) {
+        if (error) {
+            throw error;
+        } else {
+            FlowRouter.go(`/results/${newPollId}`);
+        }
+      });
     } else {
       alert('Field validation failed. Please correct any errors.');
     }
@@ -29,11 +36,11 @@ Create = React.createClass({
             <div className="row">
 
               <div className="input-field col s6">
-                <TextField id="title" name="title" labelText="Poll Title"/>
+                <TextField name="title" labelText="Poll Title"/>
               </div>
 
               <div className="input-field col s6">
-                <TextField id="url" name="url" labelText="Poll URL"/>
+                <TextField name="url" labelText="Poll URL"/>
               </div>
 
             </div>

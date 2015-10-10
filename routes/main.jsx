@@ -14,10 +14,10 @@ FlowRouter.route('/create', {
   }
 });
 
-FlowRouter.route('/result/:_id', {
+FlowRouter.route('/results/:_id', {
   action: function(params, queryParams) {
     ReactLayout.render(MainLayout, {
-      content: <Result />
+      content: <Results />
     });
   }
 });
@@ -25,7 +25,7 @@ FlowRouter.route('/result/:_id', {
 FlowRouter.route('/:_id', {
   action: function(params, queryParams) {
     ReactLayout.render(MainLayout, {
-      content: <Poll _id={params._id} />
+      content: <Poll pollId={params._id} />
     });
   }
 });
