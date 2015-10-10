@@ -16,6 +16,11 @@ var PollSchema = new SimpleSchema({
     index: true,
     unique: true,
     denyUpdate: true
+  },
+  createdOn: {
+    type: Date,
+    defaultValue: new Date(),
+    denyUpdate: true
   }
 });
 
