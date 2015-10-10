@@ -1,6 +1,6 @@
 Home = React.createClass({
   onCreateNewClicked() {
-    FlowRouter.go('/create');
+    FlowRouter.go('/new');
   },
 
   render() {

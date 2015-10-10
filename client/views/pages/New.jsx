@@ -1,4 +1,4 @@
-Create = React.createClass({
+New = React.createClass({
   onFormSubmit(event) {
     event.preventDefault();
 

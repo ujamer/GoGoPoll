@@ -6,10 +6,10 @@ FlowRouter.route('/', {
   }
 });
 
-FlowRouter.route('/create', {
+FlowRouter.route('/new', {
   action: function(params, queryParams) {
     ReactLayout.render(MainLayout, {
-      content: <Create />
+      content: <New />
     });
   }
 });
