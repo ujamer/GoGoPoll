@@ -17,7 +17,7 @@ FlowRouter.route('/new', {
 FlowRouter.route('/results/:_id', {
   action: function(params, queryParams) {
     ReactLayout.render(MainLayout, {
-      content: <Results />
+      content: <Results resultId={params._id}/>
     });
   }
 });
