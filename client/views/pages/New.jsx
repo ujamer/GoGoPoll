@@ -36,11 +36,11 @@ New = React.createClass({
             <div className="row">
 
               <div className="input-field col s6">
-                <TextField name="title" labelText="Poll Title"/>
+                <FormField type="text" name="title" labelText="Poll Title" />
               </div>
 
               <div className="input-field col s6">
-                <TextField name="url" labelText="Poll URL"/>
+                <FormField type="text" name="url" labelText="Poll URL" />
               </div>
 
             </div>
