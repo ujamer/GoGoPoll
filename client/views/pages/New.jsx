@@ -21,22 +21,18 @@ New = React.createClass({
     return (
       <div>
 
-        <h1>Create a New Poll</h1>
-
         <div className="row">
 
           <form className="col s12" onSubmit={this.onFormSubmit}>
 
             <div className="row">
+                <QuestionField placeholder="What is your favourite colour?" name="Question" labelText="Ask A Question." />
+            </div>
 
-              <div className="input-field col s6">
-                <FormField type="text" name="title" labelText="Poll Title" />
-              </div>
-
-              <div className="input-field col s6">
+            <div className="row">
+              <div className="input-field col s12">
                 <FormField type="text" name="url" labelText="Poll URL" />
               </div>
-
             </div>
 
             <input className="waves-effect waves-light btn-large right" type="submit" value="Submit" />
