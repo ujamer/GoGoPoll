@@ -6,6 +6,7 @@ Meteor.methods({
     return resulturl;
   },
   getPoll: function(resulturl) {
-    return Polls.find({ resulturl });
+    // console.log(Polls.find({ resulturl }));
+    return Polls.findOne({ resulturl });
   }
 });

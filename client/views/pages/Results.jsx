@@ -3,11 +3,12 @@ Results = React.createClass({
     return { poll: {} };
   },
   componentDidMount() {
+    var self = this;
     Meteor.call('getPoll', this.props.resultId, function(error, poll) {
       if (error) {
         alert('There was an error getting a poll.');
       } else {
-        this.setState({ poll });alert('There was a long error getting a poll.');
+        self.setState({ poll });
       }
     });
   },
