@@ -13,8 +13,9 @@ ChoiceList = React.createClass({
   },
 
   onAddPollChoice() {
-
-  }
+    event.preventDefault();
+    LocalChoices.insert({text:"",count:0});
+  },
 
   renderChoices() {
     return this.data.localChoiceList.map((choice) => {
