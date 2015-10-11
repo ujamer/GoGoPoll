@@ -6,8 +6,10 @@ New = React.createClass({
     var form = new ParseForm(event.target);
     var formData = {
       question: form.question,
-      url: form.url
+      url: form.url,
+      choices: LocalChoices.find({}).fetch()
     };
+    console.log(formData);
     Meteor.call('createPoll', formData, function(error, newPollId) {
       if (error) {
         alert('Field validation failed. Please correct any errors.');
@@ -22,8 +24,8 @@ New = React.createClass({
     LocalChoices = new Mongo.Collection(null);
 
     var choices = [
-      { text: 'Yes', count: 0 },
-      { text: 'No', count: 0 },
+      { text: 'Yes' },
+      { text: 'No' },
     ];
 
     for (var i = 0; i < choices.length; i++) {
