@@ -1,9 +1,5 @@
 ChoiceItem = React.createClass({
   render() {
-    var id = Random.id();
-    var divStyle = {
-      width: '90%'
-    };
     return (
       <li className="collection-item dismissable">
 
