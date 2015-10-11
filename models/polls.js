@@ -36,7 +36,6 @@ var PollSchema = new SimpleSchema({
   },
   'choices.$.count': {
     type: Number,
-    denyInsert: true,
     defaultValue: 0,
     min: 0
   },
