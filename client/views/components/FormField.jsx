@@ -1,4 +1,10 @@
 FormField = React.createClass({
+  getDefaultProps: function() {
+    return {
+      active: false,
+      placeholder: ""
+    };
+  },
   render() {
     var id = Random.id();
 
@@ -7,8 +13,8 @@ FormField = React.createClass({
       case "url":
         return (
           <div>
-            <input id={id} type={this.props.type} className="validate" name={this.props.name} />
-            <label htmlFor={id}>{this.props.labelText}</label>
+            <input id={id} placeholder={this.props.placeholder} type={this.props.type} className="validate" name={this.props.name} />
+            <label className={this.props.active ? "active" : "" } htmlFor={id}>{this.props.labelText}</label>
           </div>
         );
       default:
