@@ -5,7 +5,7 @@ PollItem = React.createClass({
       width: '90%'
     };
     return (
-      <li className="collection-item">
+      <li className="collection-item dismissable">
           <div className="row">
             <div className="input-field col s11">
               <FormField type="text" name="choice" />

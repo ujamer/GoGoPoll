@@ -1,9 +1,3 @@
 @import "components/page-head";
-
-.collection-item .row {
-  margin-bottom: 0px;
-}
-
-.collection-item .btn-floating {
-  margin-top: 1rem;
-}
+@import "components/poll-item";
+@import "components/question-field";
