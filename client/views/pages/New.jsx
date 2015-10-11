@@ -8,7 +8,6 @@ New = React.createClass({
       question: form.question,
       url: form.url
     };
-    console.log(LocalChoices);
     Meteor.call('createPoll', formData, function(error, newPollId) {
       if (error) {
         alert('Field validation failed. Please correct any errors.');
