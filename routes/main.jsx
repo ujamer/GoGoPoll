@@ -22,10 +22,10 @@ FlowRouter.route('/results/:_id', {
   }
 });
 
-FlowRouter.route('/:_id', {
+FlowRouter.route('/vote/:_id', {
   action: function(params, queryParams) {
     ReactLayout.render(MainLayout, {
-      content: <Poll pollId={params._id} />
+      content: <Vote pollId={params._id} />
     });
   }
 });
