@@ -1,23 +1,25 @@
 Results = React.createClass({
-  getInitialState() {
-    return { poll: {} };
+  mixins: [ReactMeteorData],
+
+  getMeteorData() {
+    var handle = Meteor.subscribe('poll', this.props.resultId);
+
+    return {
+      loading: !handle.ready(),
+      poll: Polls.findOne({ resulturl: this.props.resultId })
+    };
   },
-  componentDidMount() {
-    var self = this;
-    Meteor.call('getPoll', this.props.resultId, function(error, poll) {
-      if (error) {
-        alert('There was an error getting a poll.');
-      } else {
-        self.setState({ poll });
-      }
-    });
-  },
+
   render() {
+    if (this.data.loading) {
+      return <div></div>;
+    }
+
     return (
       <div>
         <h1>Poll Results</h1>
-        <p>The poll URL is {this.state.poll.url}. Give this URL to your participants.</p>
-        <p>The results poll ID is {this.props.resultId}. This is here for debugging purpose only.</p>
+        <p>The poll URL is <strong>{this.data.poll.url}</strong>. Give this URL to your participants.</p>
+        <p>The results poll ID is <strong>{this.props.resultId}</strong>. This is here for debugging purpose only.</p>
       </div>
     );
   }
