@@ -2,7 +2,7 @@ Results = React.createClass({
   mixins: [ReactMeteorData],
 
   getMeteorData() {
-    var handle = Meteor.subscribe('poll', this.props.resultId);
+    var handle = Meteor.subscribe('pollFromResultId', this.props.resultId);
 
     return {
       loading: !handle.ready(),
