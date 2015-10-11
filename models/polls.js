@@ -25,6 +25,21 @@ var PollSchema = new SimpleSchema({
     unique: true,
     denyUpdate: true
   },
+  choices: {
+    type: [Object],
+    minCount: 2
+  },
+  'choices.$.text': {
+    type: String,
+    max: 255,
+    denyUpdate: true
+  },
+  'choices.$.count': {
+    type: Number,
+    denyInsert: true,
+    defaultValue: 0,
+    min: 0
+  },
   allowAnonymousVote: {
     type: Boolean,
     defaultValue: true,
